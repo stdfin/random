@@ -1,2 +1,2 @@
-# random
-C++11 random addon
+# stdfin-random
+A collection of C++11 random engines and distributions
