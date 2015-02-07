@@ -33,6 +33,7 @@ class non_central_chi_squared_distribution {
 public:
     typedef RealType result_type;
     typedef RealType input_type;
+    typedef non_central_chi_squared_distribution<RealType> distribution_type;
     
     class param_type {
     public:
