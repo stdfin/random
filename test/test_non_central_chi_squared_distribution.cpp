@@ -3,8 +3,9 @@
 
 int main()
 {
+
 	typedef stdfin::non_central_chi_squared D;
-	test_distribution<D>();
-	
+	D d1(1,3);
+	test_distribution<D>(d1);
 }
 

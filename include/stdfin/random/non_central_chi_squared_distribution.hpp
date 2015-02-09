@@ -161,11 +161,11 @@ public:
     void reset() {}
     
     /** Returns the smallest value that the distribution can produce. */
-    result_type min() const
+    result_type (min)() const
     { return RealType(0); }
     
     /** Returns the largest value that the distribution can produce. */
-    result_type max() const
+    result_type (max)() const
     { return (std::numeric_limits<RealType>::infinity)(); }
 
     /** Writes the parameters of the distribution to a @c std::ostream. */

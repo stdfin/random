@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
+enable_testing()
 
 project(stdfin_examples)
 
@@ -27,7 +28,9 @@ endif()
 
 
 include_directories(../include)
+include_directories(include)
 
 # list of examples:
-add_executable(non_central_chi_squared non_central_chi_squared.cpp)
-add_executable(vandercorput vandercorput.cpp)
+add_executable(test_non_central_chi_squared_distribution test_non_central_chi_squared_distribution.cpp)
+
+add_test(test_non_central_chi_squared_distribution test_non_central_chi_squared_distribution)
