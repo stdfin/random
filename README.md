@@ -66,16 +66,17 @@ A van der Corput sequence is the simplest one dimensional low-discrepancy sequen
 Low-discrepancy sequence have an advantage over pure random numbers in that they cover the domain of interest quickly and evenly. They have an advantage over grids in that those  only give high accuracy when the number of datapoints is pre-set whereas in using low-discrepancy sequence the accuracy improves continually as more datapoints are added.
 
 
-    #include <iostream>
-    #include "stdfin/random/vandercorput_engine.hpp"
+````c++
+#include <iostream>
+#include "stdfin/random/vandercorput_engine.hpp"
  
-    int main()
-    { 
-        stdfin::vandercorput_engine eng;
-        for (int i=0; i<10; ++i)
-            std::cout << eng() << "\n";        
-    }
-    
+int main()
+{ 
+    stdfin::vandercorput_engine eng;
+    for (int i=0; i<10; ++i)
+        std::cout << eng() << "\n";        
+}
+````    
 
 
 ### Non-central Chi Squared distribution
