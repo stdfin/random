@@ -5,7 +5,6 @@
  * Distributed under the MIT Software License.
  * See the accompanying file LICENSE or copy at http://opensource.org/licenses/MIT
  *
- * $Id$
  */
 
 #ifndef STDFIN_RANDOM_NON_CENTRAL_CHI_SQUARED_DISTRIBUTION_HPP

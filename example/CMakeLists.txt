@@ -31,3 +31,5 @@ include_directories(../include)
 # list of examples:
 add_executable(non_central_chi_squared non_central_chi_squared.cpp)
 add_executable(vandercorput vandercorput.cpp)
+add_executable(multithreaded_rng multithreaded_rng.cpp)
+

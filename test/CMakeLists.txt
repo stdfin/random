@@ -32,5 +32,7 @@ include_directories(include)
 
 # list of examples:
 add_executable(test_non_central_chi_squared_distribution test_non_central_chi_squared_distribution.cpp)
+add_executable(test_threefry_engine test_threefry_engine.cpp)
 
 add_test(test_non_central_chi_squared_distribution test_non_central_chi_squared_distribution)
+add_test(test_threefry_engine test_threefry_engine)
