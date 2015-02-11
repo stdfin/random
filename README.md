@@ -1,8 +1,23 @@
 # stdfin-random
 A collection of C++11 compatible random engines and distributions.
 
+
+
 ## Random engines
+
+Item  | Description
+------------- | -------------
+Threefry   | A fast, high quality random number generator used or large scale parallel processing.
+Vandercorput  | A simplest one dimensional low-discrepancy sequence.
+
+## Random distributions
+
+Item  | Description
+------------- | -------------
+Non-central Chi Squared | The distribution of the sum of squares of **k** Normal distributed variates each with variance one and **lambda** the sum of squares of the normal means.
+
 ### Threefry engine
+
 The Threefry  random number engine is a fast and high quality random number generator used for large scale parallel processing.
 
 The implementation is based on a paper by *John Salmon and Mark Moraes* and described in their paper **Parallel Random Numbers: As Easy as 1, 2, 3**. (Proceedings of 2011 International Conference for High Performance Computing, Networking, Storage and Analysis). The algorithm is based on the Threefish cryptographic cipher.
@@ -19,21 +34,22 @@ Usable for large scale parallel processing:
 
 #### example:
 
-    #include <iostream>
-    #include "stdfin/random/threefry.hpp"
+````c++
+#include <iostream>
+#include "stdfin/random/threefry.hpp"
  
-    int main()
-    {
-        std::cout << "\nTwo independent streams.\n";
+int main()
+{
+    stdfin::threefry_engine eng1, eng2;
  
-        stdfin::threefry_engine eng1, eng2;
+    eng1.seed(0);  // reset the first engine (not really necessary)
+    eng2.seed(1); // 2nd engine gets a different seed
  
-        eng1.seed(0);  // reset the first engine (not really necessary)
-        eng2.seed(1); // 2nd engine gets a different seed
- 
-        for (int i=0; i<4; ++i)
-            std::cout <<  eng1() << " " << eng2() << "\n";
-    }
+    std::cout << "\nTwo independent streams.\n";
+    for (int i=0; i<4; ++i)
+        std::cout <<  eng1() << " " << eng2() << "\n";
+ }
+````
 
 gives
 
@@ -61,7 +77,6 @@ Low-discrepancy sequence have an advantage over pure random numbers in that they
     }
     
 
-## Random distributions
 
 ### Non-central Chi Squared distribution
 
