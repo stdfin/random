@@ -57,7 +57,7 @@ namespace detail {
     struct extract4x64_impl {
         inline static UIntType zth(const uint_least64_t (&_output)[4]);
         inline static UIntType nth(const uint_least64_t (&_output)[4], std::size_t n);
-        inline static UIntType w_max();
+        inline static constexpr UIntType w_max();
     };
     
     // specialisation
@@ -67,7 +67,7 @@ namespace detail {
             { return _output[0]; }
         inline static UIntType nth(const uint_least64_t (&_output)[4], std::size_t n)
             { return _output[n]; }
-        inline static UIntType w_max()
+        inline static constexpr UIntType w_max()
             { return 0xFFFFFFFFFFFFFFFF; }
     };
     template< typename UIntType>
@@ -76,7 +76,7 @@ namespace detail {
             { return _output[0] & 0xFFFFFFFF; }
         inline static UIntType nth(const uint_least64_t (&_output)[4], std::size_t n)
             { return (_output[n>>1] >> ((n&1)<<5)) & 0xFFFFFFFF; }
-        inline static UIntType w_max()
+        inline static constexpr UIntType w_max()
             { return 0xFFFFFFFF; }
     };
     template< typename UIntType>
@@ -85,7 +85,7 @@ namespace detail {
             { return _output[0] & 0xFFFF; }
         inline static UIntType nth(const uint_least64_t (&_output)[4], std::size_t n)
             { return (_output[n>>2] >> ((n&3)<<4)) & 0xFFFF; }
-        inline static UIntType w_max()
+        inline static constexpr UIntType w_max()
             { return 0xFFFF; }
     };
     template< typename UIntType>
@@ -94,7 +94,7 @@ namespace detail {
             { return _output[0] & 0xFF; }
         inline static UIntType nth(const uint_least64_t (&_output)[4], std::size_t n)
             { return (_output[n>>3] >> ((n&7)<<3)) & 0xFF; }
-        inline static UIntType w_max()
+        inline static constexpr UIntType w_max()
             { return 0xFF; }
     };
     
@@ -196,13 +196,13 @@ public:
     /**
      * @brief Gets the smallest possible value in the output range.
      */
-    static result_type (min)()
+    static constexpr result_type (min)()
     { return 0; }
 
     /**
      * @brief Gets the largest possible value in the output range.
      */
-    static result_type (max)()
+    static constexpr result_type (max)()
     { return detail::extract4x64_impl<UIntType,w>::w_max(); }
 
 
