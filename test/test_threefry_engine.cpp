@@ -25,11 +25,10 @@ BOOST_AUTO_TEST_CASE(test_kat_threefry4x64)
 #include <iostream>
 #include <sstream>
 #include <cassert>
-
+#include <cstdint>
 
 int main()
 {
-	
 	stdfin::threefry_20_64 eng;
     test_engine<stdfin::threefry_20_64>(eng);
     
@@ -143,5 +142,11 @@ int main()
         assert( eng() == 0x901d406ccebc1ba4 );
     }
 */
+
+    static_assert(stdfin::threefry_13_32::min() == 0, "");
+    static_assert(stdfin::threefry_13_32::max() == UINT32_MAX, "");
+    static_assert(stdfin::threefry_13_64::min() == 0, "");
+    static_assert(stdfin::threefry_13_64::max() == UINT64_MAX, "");
+
     return 0;
 }
